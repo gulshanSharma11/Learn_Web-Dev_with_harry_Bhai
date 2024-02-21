@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>grid layout</title>
+
+    <style>
+        * { 
+            box-sizing: border-box; 
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            display: grid;
+            height: 600px;
+            width: 80vw;
+            background-color: aqua;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            
+            align-items: center;
+            text-align: center;
+            
+            justify-items: center;
+        }
+        .Box{
+            background-color: beige;
+           height: 80%;
+           width: 80%;
+           border:2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="Box">Box1</div>
+        <div class="Box">Box2</div>
+        <div class="Box">Box3</div>
+        <div class="Box">Box4</div>
+        <div class="Box">Box5</div>
+        <div class="Box">Box6</div>
+        
+        
+       
+    </div>
+</body>
+</html>

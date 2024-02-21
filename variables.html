@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> css variables</title>
+    <style>
+  :root{
+            --color:#ff0303;
+            --div_back:#42b8ef;
+            --border:2px solid black;
+            --button_back:#50d641;
+            --para_back:#7a1dcb;
+  }
+               .box{
+                background-color:var(--div_back);
+                color:var(--color);
+                border:var(--border);
+               }  
+               .para:first-child{
+                background-color: var(--para_back);
+                border:var(--border);
+                color:var(--color);
+               }
+               button:first-child{
+                background-color: var(--color);
+               }
+               .button{
+                background-color: var(--button_back);
+                border:var(--border);
+               }
+               
+    </style>
+</head>
+<body>
+    <div class="box box1">Box 1</div>
+    <div class="box box2">Box 2</div>
+    <div class="box box3">Box 3</div>
+    <div class="box box4">Box 4</div>
+    <div class="box box5">Box 5</div>
+
+
+
+    <p class="para"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus aliquid fuga blanditiis ea deserunt nesciunt, quisquam, itaque nam, veniam molestiae provident fugiat vitae magni saepe impedit cum? Vero quam, delectus atque facilis libero veniam dicta.</p>
+    <p class="para">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus aliquid fuga blanditiis ea deserunt nesciunt, quisquam, itaque nam, veniam molestiae provident fugiat vitae magni saepe impedit cum? Vero quam, delectus atque facilis libero veniam dicta</p>
+    <p class="para">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus aliquid fuga blanditiis ea deserunt nesciunt, quisquam, itaque nam, veniam molestiae provident fugiat vitae magni saepe impedit cum? Vero quam, delectus atque facilis libero veniam dicta</p>
+    <p class="para">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus aliquid fuga blanditiis ea deserunt nesciunt, quisquam, itaque nam, veniam molestiae provident fugiat vitae magni saepe impedit cum? Vero quam, delectus atque facilis libero veniam dicta</p>
+
+
+    <button class="button">Hello 1</button>
+    <button class="button">Hello 2</button>
+    <button class="button">Hello 3</button>
+    <button class="button">Hello 4</button>
+    <button class="button">Hello 5</button>
+
+
+
+
+</body>
+</html>

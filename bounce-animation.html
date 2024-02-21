@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bounce</title>
+    <style>
+        .container{
+            width:80vw;
+            height:70vw;
+            background-color: yellow;
+        }
+           .box1{
+            width:5vw;
+            height:5vh;
+            margin:200px;
+            display: inline-block;
+            background-color: red;
+            border-radius: 50%;
+            animation: bouncy_gullu 1s  infinite ease-in alternate-reverse;
+           }
+           @keyframes bouncy_gullu {
+            0%{
+                   transform: translateX(0%);
+                   transform: scale(1.5);
+                   box-shadow: 0px 50px rgb(113, 112, 112);
+                   
+            }
+           
+            50%{
+               
+                box-shadow:none;
+            }
+            100%{
+                transform: translateY(-9vh);
+                box-shadow:none;
+            }
+
+           }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box1"></div>
+    </div>
+</body>
+</html>

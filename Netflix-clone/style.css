@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    padding: 0;
+    margin:0;
+    font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
+
+color:white;
+}
+body{
+    background-color: black;
+}
+header{
+    position: relative;
+    background-position: center center;
+}
+nav{
+    display:flex;
+    position:absolute;
+
+    width: 100vw;
+
+    justify-content: space-around;
+    
+    z-index: 15;
+    top: 20px;
+    
+}
+.nav-content{
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    
+    
+}
+.nav-content> button{
+   background-color: rgba(141, 139, 139, 0.158);
+   color:white;
+   margin:20px;
+   padding:10px 20px 10px 20px;
+   border-radius: 10px;
+    font-size: medium;
+}
+
+
+
+.bg-image>img{
+    height: 80vh;
+    width: 100vw;
+    
+}
+.image-bg-dark{
+    height: 80vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    background-color: rgba(22, 22, 22, 0.527);
+}
+.content{
+      display:flex;
+    position: absolute;
+    
+    flex-direction: column;
+    top:30vh;
+    
+    color: white;
+    width:100%;
+    text-align: center;
+ 
+    justify-content: center;
+    gap:20px;
+    z-index:10;
+}
+.home-search> button,input{
+    height:50px;
+}
+.home-search input{
+    width:350px;
+    background-color: rgba(22, 22, 22, 0.527);
+    
+    font-size: 16px;;
+}
+.home-search button{
+    width:150px;
+    font-size:  20px;
+    background-color: red;
+    color:white;
+    font-weight: 900;
+
+}
+.divider{
+    width: 100%;
+  margin-top: -5px;
+    height: 10px;
+    background-color: rgb(75, 75, 75);
+   
+
+}
+.box2{
+    display: flex;
+    justify-content: center;
+    max-width: 70vw;
+    margin: auto;
+    color: white;
+    
+    align-items: center;
+  
+  
+   
+}
+.box2-1{
+    display: flex;
+    flex-direction: column;
+    padding: 34px 0;
+   
+}
+.sec-img{
+    position:relative;
+}
+.img1   {
+    width: 555px;
+    position: relative;
+    z-index: 10;
+}
+.video1{
+    position: absolute;
+    top: 51px;
+    right: 0;
+    width: 555px;
+}
+
+
+.box3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    max-width: 70vw;
+}
+.box3-1{
+    display: flex;
+    flex-direction: column;
+    padding: 34px 0;
+}
+.sec-img2{
+    position: relative;
+
+}
+.img2{
+    position: relative;
+    z-index: 1;  
+}
+.video2{
+    position: absolute;
+    width: 465px;
+    height: 361px;
+    right: 91px;
+    top: 51px;
+}
