@@ -1,0 +1,17 @@
+{
+  "name": "intro",
+  "version": "1.0.0",
+  "description": "journey towards nodejs",
+  "main": "intro.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "file1"
+  ],
+  "author": "Gullu Pandit",
+  "license": "ISC",
+  "dependencies": {
+    "node-alarm-dot-com": "^2.1.0"
+  }
+}
