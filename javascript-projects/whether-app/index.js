@@ -49,3 +49,4 @@ async function data(city){
 btn.addEventListener("click",()=>{
     data(searchbox.value);
 })
+
