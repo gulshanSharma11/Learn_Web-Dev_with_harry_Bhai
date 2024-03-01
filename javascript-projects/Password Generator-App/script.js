@@ -6,7 +6,7 @@ const lowerCase="abcdefghijklmnopqrstuvwxyz";
 const numbers="0123456789";
 const Symbol="!@#$%^&*()_+=-~<>?/";
 let final='';
-const length=28;
+const length=12;
 let newPassword=upperCase+lowerCase+numbers+Symbol;
 function generateRandomString(){
     let randomNumber='';
