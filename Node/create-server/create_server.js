@@ -44,9 +44,14 @@ app.get("/",(req,res)=>{
 app.get("/about", (req,res)=>{
    return res.send("Hello This a about Page");
     });
+
+    app.post("/", (req, res)=>{
+      console.log("This is a post request");
+      return res.send("This is your post request")
+    })
     
 
-   app.listen(8000,()=> console.log("Your Server is started"));
+   app.listen(7100,()=> console.log("Your Server is started"));
 
 
 
