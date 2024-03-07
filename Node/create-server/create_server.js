@@ -46,10 +46,14 @@ app.get("/about", (req,res)=>{
     });
 
     app.post("/", (req, res)=>{
-      console.log("This is a post request");
+      console.log(" post request");
       return res.send("This is your post request")
     })
     
+    app.post("/",(res, req)=>{
+      console.log("This is your Put Request");
+      return send("PUT requewst");
+    })
 
    app.listen(7100,()=> console.log("Your Server is started"));
 
