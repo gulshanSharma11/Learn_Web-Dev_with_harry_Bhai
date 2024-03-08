@@ -36,7 +36,15 @@
 
 
 const express=require("express");
+const blog = require('./routes/blog')
+const product=require('./routes/product')  
+
+// ...
+
+
 const app=express();
+app.use('/blog', blog)
+app.use('/product',product)
 
 app.get("/",(req,res)=>{                                                                                                                                                                                                                                                                                                                                    
    return res.send("Hello Worild");
@@ -50,9 +58,9 @@ app.get("/about", (req,res)=>{
       return res.send("This is your post request")
     })
     
-    app.post("/",(res, req)=>{
-      console.log("This is your Put Request");
-      return send("PUT requewst");
+    app.put("/",( req,res)=>{
+      console.log("This is your Put Requestt");
+      return res.send("PUT requewst");
     })
 
    app.listen(7100,()=> console.log("Your Server is started"));
