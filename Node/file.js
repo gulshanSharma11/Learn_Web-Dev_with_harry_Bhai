@@ -7,7 +7,7 @@
 // }
 // main(4,5);
 
-// const fs=require("fs");
+const fs=require("fs");
 
 // //fs.writeFileSync("./index.txt","console.log(hello Sir)");
 //  // how to export this file?
@@ -21,12 +21,13 @@
 
 // const os=require("os");
 // console.log(os.cpus().length);
+const mongoose = require("mongoose");
 
-
-const http=require("http");
+const http=require("http");                  
 
 const myServer=http.createServer((req, res)=>{
     console.log("req successful");
+
     res.end("Hello i am Server");
 });
 
