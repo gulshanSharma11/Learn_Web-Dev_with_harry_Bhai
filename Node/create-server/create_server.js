@@ -3,19 +3,27 @@
 // const port = 7000;
 // const server = http.createServer((req, res) => {
 //   res.statusCode = 200;
+  
 //  res.setHeader('Content-Type', 'text/plain');
 //   res.end('Hello World\n');
+  
 // });
 // server.listen(port, hostname, () => {
 //   console.log(`Server running at http://${hostname}:${port}/`);
 // });
+
+
+
+//---------------------------express---------------------------
+
 // const express = require('express');
 // const app = express();
 
-// app.get('/path', (req, res) => {
+// app.get('/', (req, res) => {
 //   res.setHeader('Content-Type', 'text/plain');
 //   res.send('Hello, World!');
 // });
+
 
 // app.listen(9000, () => {
 //   console.log('Server is running on port 9000');
@@ -31,7 +39,7 @@
 
 
  
- 
+ //------------------------------ routing----------------------------
 
 
 
@@ -39,7 +47,7 @@ const express=require("express");
 const blog = require('./routes/blog')
 const product=require('./routes/product')  
 
-// ...
+
 
 
 const app=express();
