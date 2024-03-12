@@ -1,3 +1,5 @@
+//------------------CRUD -------------------------
+
 use("newFile");
 //console.log(db)
 
@@ -29,13 +31,29 @@ use("newFile");
 //     projects:"array-reverse,loops,if",
 // }])
 
-let a = db.courses.find({ chapters: 12 });
-// console.log(a);
-console.log(a.count());
-db.courses.update({chapters: 12},{$set:{chapters:19}});
+// let a = db.courses.find({ chapters: 12 });
+// // console.log(a);
+// console.log(a.count());
+// db.courses.update({chapters: 12},{$set:{chapters:19}});
 
 
-db.courses.deleteMany({chapters:19})
+// db.courses.deleteMany({chapters:19})
 
+
+
+
+
+//--------------------Using Mongoose----------------------
+
+import mongoose from "mongoose";
+import express from 'express';
+let a = await mongoose.connect("mongodb://localhost:27017/")
+
+const app=express();
+app.get("/",(req,res)=>{
+    res.send("Hello");
+});
+
+app.listen(7100,()=> console.log("Mongoose express Connection"));
 
 
