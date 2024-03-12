@@ -43,17 +43,6 @@ use("newFile");
 
 
 
-//--------------------Using Mongoose----------------------
 
-import mongoose from "mongoose";
-import express from 'express';
-let a = await mongoose.connect("mongodb://localhost:27017/")
-
-const app=express();
-app.get("/",(req,res)=>{
-    res.send("Hello");
-});
-
-app.listen(7100,()=> console.log("Mongoose express Connection"));
 
 
