@@ -5,7 +5,7 @@ const dotenv=require("dotenv");
 
 const app=express();
 dotenv.config();
-const port=process.env.PORT||6000;
+const port=9000;
 mongoose.connect("mongodb://localhost:27017/contactForm");
 
 const userSchema=new mongoose.Schema({
@@ -23,11 +23,19 @@ app.get('/',(req,res)=>{
 app.post('/register',async (req,res)=>{
     try{
         const {name,email,password}=req.body;
-
-        const newRegister=new Register({name,email,password
+        const existingUser=await Register.findOne({
+            email:email
         });
-       await newRegister.save();
-       res.redirect("/success");
+        if(existingUser) {
+            const newRegister=new Register({name,email,password
+            });
+           await newRegister.save();
+           res.redirect("/success");
+        }
+    //     const newRegister=new Register({name,email,password
+    //     });
+    //    await newRegister.save();
+    //    res.redirect("/success");
     }
     catch(error){
         console.log(error);
@@ -47,5 +55,5 @@ app.get( "/error", ( req, res ) =>{
 
 
 app.listen(port,()=>{
-    console.log("Server Started");
+    console.log(`Server Started at http://localhost:${port}`);
 })
