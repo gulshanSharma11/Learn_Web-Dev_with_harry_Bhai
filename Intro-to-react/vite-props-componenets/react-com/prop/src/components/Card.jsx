@@ -1,14 +1,14 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-function WithHeaderExample() {
+function BasicExample(props) {
   return (
-    <Card>
-      <Card.Header>Featured</Card.Header>
+    <Card style={{ width: '18rem' }}>
+      <Card.Img variant="top" src="https://codeimg.io/img/social_meta.png" />
       <Card.Body>
-        <Card.Title>Special title treatment</Card.Title>
+        <Card.Title>{props.title}</Card.Title>
         <Card.Text>
-          With supporting text below as a natural lead-in to additional content.
+          {props.description}
         </Card.Text>
         <Button variant="primary">Go somewhere</Button>
       </Card.Body>
@@ -16,4 +16,4 @@ function WithHeaderExample() {
   );
 }
 
-export default WithHeaderExample;
+export default BasicExample;
