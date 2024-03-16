@@ -45,4 +45,8 @@ function NavScrollExample() {
           </Form>
         </Navbar.Collapse>
       </Container>
-    </Navb
+    </Navbar>
+  );
+}
+
+export default NavScrollExample;
