@@ -2,8 +2,7 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import Show from "./assets/login.jsx";
-import Footer from "./footer.jsx";
+
 
 function App() {
   const [count, setCount] = useState(0);
@@ -22,33 +21,29 @@ function App() {
       class: 17,
     },
   ]);
+  const [stodos,setSTodos]=useState(false);
 
   // const Tota=({tota})=>{
   // return (<>
   //       <div>{tota.name}</div>
   //       <div>{tota.class}</div>
   // </>)};
-  {
-    function list() {
-      todos.map((tota) => {
-        {
-          /* return <Tota key={tota.name} tota={tota}/> */
-          return (
-            <>
-              <div key={tota.name}>
-                <div>{tota.name}</div>
-                <div>{tota.class}</div>
-              </div>
-            </>
-          );
-        }
-      });
-    }
+  
+   
+  const listTodos = () => {
+    return (todos.map((todo) => (
+      <div key={todo.name}>
+        <div>{todo.name}</div>
+        <div>{todo.class}</div>
+      </div>
+    )))
   }
+    
+  
 
   return (
     <>
-      <Footer />
+      
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -82,12 +77,15 @@ function App() {
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
-        <Show />
-        <button onClick={() => list()}></button>
+        
+        
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      
+      <button onClick={()=>setSTodos(!stodos)}>see list</button>
+      {stodos && listTodos()}
     </>
   );
 }
