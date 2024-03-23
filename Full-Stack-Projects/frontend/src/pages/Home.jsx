@@ -193,7 +193,7 @@ const Home = () => {
               </Link>
             </div>
             {/*============ feature section img============= */}
-            <div className="relative z-10 xl:w-[770px] flex justify-end mt-[50px] lg:mt-0">
+            <div className="relative z-10 xl:w-[770px] flex justify-end mt-[50px] lg:mt-0 ">
               <img src={featureImg} alt="" className="w-3/4" />
               <div className="w-[150px] lg:w-[248px] bg-white absolute bottom-[50px] left-0 md:bottom-[100px] md:left-5 z-20 p-2 pb-3 lg:pt-4 lg:px-4 lg:pb-[26px] rounded-[10px] ">
                 <div className="flex items-center justify-between">
@@ -234,7 +234,7 @@ const Home = () => {
   <div className='container'>
   <div className="xl:w-[470px] mx-auto">
             <h2 className="heading text-center">Our great doctors</h2>
-            <p className="text-para text-center">
+            <p className="text_para text-center">
               World-class care for everyone. Our health System offers unmatched,
               expert health care.
             </p>
