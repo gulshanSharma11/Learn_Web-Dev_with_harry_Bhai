@@ -3,7 +3,8 @@ import logo from '../../assets/images/logo.png';
 import { NavLink, Link } from 'react-router-dom';
 import userImg from '../../assets/images/avatar-icon.png';
 import {BiMenu}  from "react-icons/bi"; 
-import '../../App.css'
+import '../../App.css';
+import { RxCross2 } from "react-icons/rx";
 
 
 const navLinks = [
@@ -48,7 +49,8 @@ useEffect(()=>{
   return ()=> window.removeEventListener( 'scroll',handleStickyHeader )
 });
 
-const toggleMenu =() => menuRef.current.classList.toggle('show_menu')
+const toggleMenu = () => menuRef.current.classList.toggle('show_menu')
+const toggleMenuCross=()=>menuRef.current.classList.toggle('show_menu_cross')
 
   return (
     <header className="header flex items-center " ref={headerRef}>
@@ -60,8 +62,12 @@ const toggleMenu =() => menuRef.current.classList.toggle('show_menu')
           </div>
 
           {/* ==================  menu ==================== */}
-          <div className="navigation" ref={menuRef} onclick={toggleMenu}>
+          <div className="navigation" ref={menuRef} onClick={toggleMenu}>
+          
             <ul className="menu flex items-center gap-[2.7rem]">
+            <span className='md:hidden' >
+    <RxCross2 className="w-6 h-6 cursor-pointer"/>
+  </span>
               {navLinks.map((link, index) => 
                 <li key={index}>
                   <NavLink
@@ -95,7 +101,7 @@ const toggleMenu =() => menuRef.current.classList.toggle('show_menu')
   <Link to='/login'>
     <button className='bg-primaryColor py-2 px-6 text-white font-[600] h-[44px] flex items-center justify-center rounded-[50px] '>Login</button>
   </Link>
-  <span className='md:hidden' onclick={toggleMenu}>
+  <span className='md:hidden' onClick={toggleMenu}>
     <BiMenu className="w-6 h-6 cursor-pointer"/>
   </span>
 </div>
