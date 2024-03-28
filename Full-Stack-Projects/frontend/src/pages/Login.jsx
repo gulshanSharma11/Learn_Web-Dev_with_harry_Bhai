@@ -1,5 +1,6 @@
 import React from 'react';
 import {useState} from 'react';
+import {Link } from 'react-router-dom';
 
 
 const Login = () => {
@@ -7,7 +8,7 @@ const [formData, setFormData] = useState({email:'',password:''});
 
 const handleInputChange = e=>{
   setFormData({...formData, [e.target.name]:e.target.value});
-}
+};
 
   return (
     <section>
@@ -28,6 +29,12 @@ const handleInputChange = e=>{
             <div className="mt-7">
               <button type='submit' className='w-full bg-primaryColor text-white text-[18px] leading-[30px] rounded-lg px-4 py-3'>login</button>
             </div>
+            <p className="mt-5 textColor text-center">
+              Don&apos;t have a account? 
+             <Link to='/register' className="text-primaryColor font-medium ml-1">
+              Register
+             </Link>
+            </p>
           </form>
         </div>
       </div>
