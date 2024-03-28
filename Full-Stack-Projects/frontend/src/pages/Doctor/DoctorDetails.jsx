@@ -4,6 +4,7 @@ import starIcon from '../../assets/images/Star.png';
 import { useState } from 'react';
 import Feedback from './Feedback';
 import DoctorAbout from './DoctorAbout';
+import SidePanel from './SidePanel';
 
 const DoctorDetails = () => {
   const [tab, setTab] = useState('about');
@@ -45,6 +46,9 @@ const DoctorDetails = () => {
 
 </div>
 
+          </div>
+          <div>
+          <SidePanel/>
           </div>
         </div>
       </div>
