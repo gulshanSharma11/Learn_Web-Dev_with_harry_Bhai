@@ -9,9 +9,17 @@
 
 const fs=require("fs");
 
-// //fs.writeFileSync("./index.txt","console.log(hello Sir)");
-//  // how to export this file?
-//  fs.readFileSync("./index.txt",(err)=>{});
+
+fs.writeFileSync("./indexxx.txt","console.log(hello Sir)");
+fs.appendFileSync("./indexxx.txt","/n Hii Sir");
+
+
+
+
+
+
+ // how to export this file?
+//  fs.readFileSync("index.txt",(err)=>{});
  
 
 // const data=fs.readFileSync('index.txt',"utf-8" );
@@ -19,8 +27,8 @@ const fs=require("fs");
 // fs.appendFileSync("./index.txt","/nJai Ram Ji  kI");
 // fs.unlinkSync("./index.txt");
 
-// const os=require("os");
-// console.log(os.cpus().length);
+const os=require("os");
+console.log(os.cpus().length);
 
 
 

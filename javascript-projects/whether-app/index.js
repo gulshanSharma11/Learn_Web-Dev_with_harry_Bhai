@@ -6,6 +6,10 @@ const btn=document.querySelector(".search button");
 const weatherIcon=document.querySelector(".weather-icon");
 
 
+btn.addEventListener("click",()=>{
+    data(searchbox.value);
+});
+
 async function data(city){
        const recievedata= await fetch(apiUrl+ city + `&appid=${apiKey}`);  
        var finaldata=await recievedata.json();  
@@ -46,7 +50,5 @@ async function data(city){
         
 }
        
-btn.addEventListener("click",()=>{
-    data(searchbox.value);
-});
+
 
