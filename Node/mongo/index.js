@@ -87,7 +87,7 @@ app.route('/api/users/:id')
      return res.json({status:"Successfully changed moj kr"});
 }).delete(async (req,res)=>{
   await User.findByIdAndDelete(req.params.id);
-  return res.json({status: 'Deleted'});
+  return res.json({status: 'Deleted'});   
 })
 
 
