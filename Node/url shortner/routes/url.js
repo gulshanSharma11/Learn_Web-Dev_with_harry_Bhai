@@ -1,9 +1,12 @@
 const express=require('express');
-const {handleGenerateNewShortURL}=require("../controller/url")
+const {handleGenerateNewShortURL,handleDeleteShortURL}=require("../controller/url")
 const router=express.Router();
 
 
 router.post('/',handleGenerateNewShortURL);
+router.delete('/',handleDeleteShortURL);
+
+
 
 
 module.exports=router;

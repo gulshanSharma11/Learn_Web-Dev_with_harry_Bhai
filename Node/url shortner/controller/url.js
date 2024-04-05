@@ -12,7 +12,19 @@ await URL.create({
     redirectUrl:body.url,
     visitHistory:[],
 })
-return res.status(200).json({id:shortID})
+return res.render('home',{
+    id:shortID
+})
 }
 
-module.exports = {handleGenerateNewShortURL};
+async function handleDeleteShortURL(req,res){
+    const body=req.body;
+    await URL.deleteMany({});
+    return res.status(200).json({message:"url deleted"})
+}
+
+// return res.status(200).json({id:shortID})
+
+
+
+module.exports = {handleGenerateNewShortURL,handleDeleteShortURL};
