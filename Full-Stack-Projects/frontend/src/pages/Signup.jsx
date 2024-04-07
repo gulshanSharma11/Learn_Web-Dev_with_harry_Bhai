@@ -1,13 +1,18 @@
 import React from 'react';
 import signupImg from '../assets/images/signup.gif';
 import avatar from '../assets/images/avatar-icon.png';
-import {Link } from 'react-router-dom';
+import {Link ,useNavigate} from 'react-router-dom';
 import {useState} from 'react';
+import uploadImageToCloudinary from '../utils/uploadCloudinary';
+import { BASE_URL } from '../config.js';
+ import {toast} from 'react-toastify';
 
 const Signup = () => {
 
   const [selectFile,setSelectedFile] = useState(null);
   const [previewURL,setPreviewURL] = useState("");
+  const [loading, setLoading] = useState(false);
+
   
   const [formData, setFormData] = useState({
     name:"",
@@ -18,16 +23,48 @@ const Signup = () => {
     role:'patient',
   });
 
+  const navigate= useNavigate();
+
   const handleInputChange = e=>{
     setFormData({...formData, [e.target.name]:e.target.value});
   };
-  const handleFileInputChange= async (event) =>{
-    const file= event.target.files[0]
-    console.log(file);
+  const handleFileInputChange= async event =>{
+    const file= event.target.files[0];
+
+    const data = await uploadImageToCloudinary(file)
+     
+    setPreviewURL(data.url);
+    setSelectedFile(data.url);
+    setFormData({...formData,photo:data.url});
+    
+    
   } ;
   const submitHandler = async event=>{
+    
     event.preventDefault();
+    setLoading(true);
+    try{
+      
+      const res= await fetch(`${BASE_URL}/api/v1/auth/register`,{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json",
+        },
+        body:JSON.stringify(formData)
+      })
+      const {message} = await res.json()
+            if(res.ok){
+              throw new Error(message)
+            }
+            setLoading(false);
+            toast.success(message)
+            navigate('/login')
+
+  }catch (err){
+         toast.error(err.message)
+         setLoading(false);
   }
+}
 
   return (
     <section className='px-5 xl:px-0'>
