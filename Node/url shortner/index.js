@@ -5,6 +5,8 @@ const shortner = require("./routes/shortner");
 const mongoose = require("mongoose");
 const path = require("path");
 const userRouter= require('./routes/user')
+const cookieParser = require("cookie-parser");
+const {restricttoLoggedinUserOnly }= require('./middlewares/auth');
 
 const app = express();
 app.set("view engine", "ejs");
@@ -15,7 +17,10 @@ mongoose
   .catch((err) => console.log("Db not connected" + err));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use("/url", urlRoute);
+app.use(cookieParser());
+
+
+app.use("/url", restricttoLoggedinUserOnly, urlRoute);
 app.use("/", shortner);
 app.use('/user',userRouter)
 
