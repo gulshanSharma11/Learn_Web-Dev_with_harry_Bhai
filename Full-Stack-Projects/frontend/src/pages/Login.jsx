@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import {  toast } from 'react-toastify';
 import {authContext} from '../context/AuthContext.jsx';
 import { BASE_URL } from "../config.js";
 import HashLoader from 'react-spinners/HashLoader';
@@ -47,7 +47,7 @@ const Login = () => {
       toast.success(result.message);
       navigate("/home");
     } catch (err) {
-      toast.error(err.message);
+      toast.error(err.message)
       setLoading(false);
     }
   };
