@@ -61,6 +61,9 @@ export const getAllUser = async (req, res) => {
   }
 };
 
+
+
+
 export const getUserProfile = async (req, res) => {
   const userId = req.userId;
   try {
@@ -96,10 +99,16 @@ export const getMyAppointments = async (req, res) => {
 
     // step2 extract doctor ids from appoinment booking
 
-    const doctorIds = bookings.map((el) => el.doctor.id);
+    const doctorIds = bookings.map(el => el.doctor.id);
 
     // step 3 retrieve doctors using ddoctor ids
 
     const doctors = await Doctor.find();
-  } catch (err) {}
+
+    res.status(200).json({success:true, message:'Appoinments are getting', data:doctors})
+  } catch (err) {
+    res
+      .status(500)
+      .json({ success: false, message: "somethink went wrong, cant get" });
+  }
 };

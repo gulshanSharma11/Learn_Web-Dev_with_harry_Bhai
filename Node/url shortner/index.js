@@ -3,7 +3,7 @@ const URL = require("./models/url");
 const urlRoute = require("./routes/url");
 const shortner = require("./routes/shortner");
 const mongoose = require("mongoose");
-const path = require("path");
+const path = require("path");  
 const userRouter= require('./routes/user')
 const cookieParser = require("cookie-parser");
 const {restricttoLoggedinUserOnly }= require('./middlewares/auth');
@@ -16,7 +16,7 @@ mongoose
   .then(() => console.log("Db Connected"))
   .catch((err) => console.log("Db not connected" + err));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));  // get form data
 app.use(cookieParser());
 
 
@@ -46,4 +46,4 @@ app.get("/:shortId", async (req, res) => {
     }
   });
 
-app.listen(8001, () => console.log("Server started in port 8001"));
+app.listen(8002, () => console.log("Server started in port 8002"));
