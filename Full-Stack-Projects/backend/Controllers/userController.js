@@ -91,24 +91,41 @@ export const getUserProfile = async (req, res) => {
   }
 };
 
+// export const getMyAppointments = async (req, res) => {
+//   try {
+//     // step-1 retrieve appointment from booking for specific user
+
+//     const bookings = await Booking.findById({ user: req.userId });
+
+//     // step2 extract doctor ids from appoinment booking
+
+//     const doctorIds = bookings.map(el => el.doctor.id);
+
+//     // step 3 retrieve doctors using ddoctor ids
+
+//     const doctors = await Doctor.find();
+
+//     res.status(200).json({success:true, message:'Appoinments are getting', data:doctors})
+//   } catch (err) {
+//     res
+//       .status(500)
+//       .json({ success: false, message: "somethink went wrong, cant get" });
+//   }
+// };
 export const getMyAppointments = async (req, res) => {
   try {
-    // step-1 retrieve appointment from booking for specific user
+    // Step 1: Retrieve appointments (bookings) for the specific user
+    const bookings = await Booking.find({ user: req.userId });
 
-    const bookings = await Booking.findById({ user: req.userId });
+    // Step 2: Extract doctor ids from the appointments
+    const doctorIds = bookings.map(el => el.doctor);
 
-    // step2 extract doctor ids from appoinment booking
+    // Step 3: Retrieve doctors using the extracted doctor ids
+    const doctors = await Doctor.find({ _id: { $in: doctorIds } });
 
-    const doctorIds = bookings.map(el => el.doctor.id);
-
-    // step 3 retrieve doctors using ddoctor ids
-
-    const doctors = await Doctor.find();
-
-    res.status(200).json({success:true, message:'Appoinments are getting', data:doctors})
+    res.status(200).json({ success: true, message: 'Appointments are retrieved', data: doctors });
   } catch (err) {
-    res
-      .status(500)
-      .json({ success: false, message: "somethink went wrong, cant get" });
+    res.status(500).json({ success: false, message: 'Something went wrong, unable to retrieve appointments' });
   }
 };
+
