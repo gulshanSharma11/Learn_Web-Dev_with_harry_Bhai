@@ -7,7 +7,7 @@ import { BASE_URL, token } from "../../config.js";
 import { toast } from "react-toastify";
 import HashLoader from 'react-spinners/HashLoader';
 
-const profile = (user) => {
+const Profile = (user) => {
   const [selectFile, setSelectedFile] = useState(null);
   
   const [loading, setLoading] = useState(false);
@@ -16,20 +16,30 @@ const profile = (user) => {
     name: "",
     email: "",
     password: "",
-    photo: null,
+    photo: "",
     gender: "",
     bloodType: "",
   });
 
   const navigate = useNavigate();
 
-  useEffect(()=>{
-    setFormData({name:user.name, email:user.email, photo:user.photo, gender:user.gender, bloodType:user.bloodType});
-  },[user]);
-  const handleInputChange = (e) => {
+  useEffect(() => {
+    // Update formData when user prop changes
+    if (user) {
+      setFormData({
+        name: user.name || "",
+        email: user.email || "",
+        password: "", // Assuming password shouldn't be pre-filled
+        photo: user.photo || "", // Handle null value by assigning empty string
+        gender: user.gender || "",
+        bloodType: user.bloodType || "",
+      });
+    }
+  }, [user]);
+  const handleInputChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  const handleFileInputChange = async (event) => {
+  const handleFileInputChange = async event => {
     const file = event.target.files[0];
 
     const data = await uploadImageToCloudinary(file);
@@ -74,7 +84,7 @@ const profile = (user) => {
                   placeholder="Full Name"
                   name="name"
                   className="w-full px-4 pr-4 py-3 border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-[16px] leading-7 text-headingColor placeholder:text-textColor rounded-md cursor-pointer"
-                  required
+                 
                 />
               </div>
               <div className="mb-5">
@@ -107,7 +117,7 @@ const profile = (user) => {
                   placeholder="bloodType"
                   name="bloodType"
                   className=" px-4 w-full pr-4 py-3 border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-[16px] leading-7 text-headingColor placeholder:text-textColor rounded-md cursor-pointer"
-                  required
+                  
                 />
               </div>
               <div className="mb-5 flex items-center justify-between">
@@ -167,4 +177,4 @@ const profile = (user) => {
   )
 }
 
-export default profile
+export default Profile;

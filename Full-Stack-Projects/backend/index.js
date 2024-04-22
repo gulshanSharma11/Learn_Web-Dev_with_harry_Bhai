@@ -3,6 +3,7 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import multer from 'multer';
 import authRoute from './Routes/auth.js';
 import userRoute from './Routes/user.js';
 import doctorRoute from './Routes/doctor.js';
@@ -12,6 +13,21 @@ dotenv.config()
 
 const app = express()
 const port = process.env.PORT || 8000
+//--------------images -----------------------------------
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        // Set the destination folder for uploaded files
+        cb(null, 'uploads/');
+    },
+    filename: function (req, file, cb) {
+        // Set the filename for uploaded files
+        cb(null, Date.now() + '-' + file.originalname);
+    }
+});
+
+const upload = multer({ storage: storage });
+
+//------------------------------
 
 
 const corsOptions={
