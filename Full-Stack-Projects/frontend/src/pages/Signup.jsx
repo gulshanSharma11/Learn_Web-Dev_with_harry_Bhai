@@ -51,15 +51,10 @@ const Signup = () => {
         throw new Error(message);
       }
       setLoading(false);
-<<<<<<< HEAD
-    } catch (error) {
-      toast.error('Failed to upload imagess');
-=======
       toast.success(message);
       navigate("/login");
     } catch (err) {
       toast.error(err.message);
->>>>>>> b45f03a817621af46f5d457a56bc9a0e96f40247
       setLoading(false);
     }
   };
